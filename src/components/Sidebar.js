@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import '../css/Sidebar.scss';
 
 const Sidebar = () => {
@@ -6,34 +7,34 @@ const Sidebar = () => {
         <div className="sidebar-sticky">
             <ul className="nav flex-column">
                 <li className="nav-item">
-                    <a className="nav-link active" href="#">
+                    <Link to="/">
                         <i className="fa fa-bar-chart" aria-hidden="true"></i>
                         Budget Summary
-                    </a>
+                    </Link>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="#">
+                    <Link to="/capital-expenditure">
                         <i className="fa fa-bar-chart" aria-hidden="true"></i>
                         Capital Expenditure
-                    </a>
+                    </Link>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="#">
+                    <Link to="/capital-receipts">
                         <i className="fa fa-bar-chart" aria-hidden="true"></i>
                         Capital Receipts
-                    </a>
+                    </Link>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="#">
+                    <Link to="/revenue-expenditure">
                         <i className="fa fa-bar-chart" aria-hidden="true"></i>
                         Revenue Expenditure
-                    </a>
+                    </Link>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="#">
+                    <Link to="/revenue-receipts">
                         <i className="fa fa-bar-chart" aria-hidden="true"></i>
                         Revenue Receipts
-                    </a>
+                    </Link>
                 </li>
             </ul>
         </div>
