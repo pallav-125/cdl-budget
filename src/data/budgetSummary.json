@@ -1,0 +1,34 @@
+{
+    "revenueAccount": [{
+        "type": "budget",
+        "year": "2014-15",
+        "receipts": "322390.31",
+        "expenditure": "188710.94"
+    },{
+        "type": "revised",
+        "year": "2014-15",
+        "receipts": "314900",
+        "expenditure": "206000"
+    },{
+        "type": "actuals",
+        "year": "2014-15",
+        "receipts": "234025.91",
+        "expenditure": "147345.81"
+    }],
+    "capitalAccount": [{
+        "type": "budget",
+        "year": "2014-15",
+        "receipts": "322390.31",
+        "expenditure": "188710.94"
+    },{
+        "type": "revised",
+        "year": "2014-15",
+        "receipts": "314900",
+        "expenditure": "206000"
+    },{
+        "type": "actuals",
+        "year": "2014-15",
+        "receipts": "234025.91",
+        "expenditure": "147345.81"
+    }]
+}

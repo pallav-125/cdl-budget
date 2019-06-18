@@ -1,0 +1,16 @@
+.sidebar-sticky {
+    li {
+        a {
+            i {
+                margin-right: 10px;
+            }
+            
+            font-weight: 600;
+            font-size: 14px;
+        }
+    }
+
+    background-color: #f8f9fa;
+    height: 100vh;
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
