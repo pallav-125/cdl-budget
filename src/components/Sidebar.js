@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import '../css/Sidebar.scss';
 
 const Sidebar = () => {
@@ -7,34 +7,34 @@ const Sidebar = () => {
         <div className="sidebar-sticky">
             <ul className="nav flex-column">
                 <li className="nav-item">
-                    <Link to="/">
+                    <NavLink to="/" exact>
                         <i className="fa fa-bar-chart" aria-hidden="true"></i>
                         Budget Summary
-                    </Link>
+                    </NavLink>
                 </li>
                 <li className="nav-item">
-                    <Link to="/capital-expenditure">
+                    <NavLink to="/capital-expenditure" exact>
                         <i className="fa fa-bar-chart" aria-hidden="true"></i>
                         Capital Expenditure
-                    </Link>
+                    </NavLink>
                 </li>
                 <li className="nav-item">
-                    <Link to="/capital-receipts">
+                    <NavLink to="/capital-receipts" exact>
                         <i className="fa fa-bar-chart" aria-hidden="true"></i>
                         Capital Receipts
-                    </Link>
+                    </NavLink>
                 </li>
                 <li className="nav-item">
-                    <Link to="/revenue-expenditure">
+                    <NavLink to="/revenue-expenditure" exact>
                         <i className="fa fa-bar-chart" aria-hidden="true"></i>
                         Revenue Expenditure
-                    </Link>
+                    </NavLink>
                 </li>
                 <li className="nav-item">
-                    <Link to="/revenue-receipts">
+                    <NavLink to="/revenue-receipts" exact>
                         <i className="fa fa-bar-chart" aria-hidden="true"></i>
                         Revenue Receipts
-                    </Link>
+                    </NavLink>
                 </li>
             </ul>
         </div>
