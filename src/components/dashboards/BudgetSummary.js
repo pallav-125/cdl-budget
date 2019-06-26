@@ -1,140 +1,80 @@
 import React from 'react';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
-import data from '../../data/budgetSummary.json';
+import budgetData from '../../data/budgetSummary.json';
 
 class BudgetSummary extends React.Component {
-    render() {
-        const revenueOptions = {
-            chart: {
-                type: 'column'
-            },
-            title: {
-                text: 'Revenue'
-            },
-            subtitle: {
-                text: 'Source: CDC Budget Files'
-            },
-            xAxis: {
-                categories: [
-                    '2012-13',
-                    '2013-14',
-                    '2014-15',
-                    '2015-16',
-                    '2016-17'
-                ],
-                crosshair: true
-            },
-            yAxis: {
-                min: 0,
-                title: {
-                    text: 'Total Amount (Rs)'
-                }
-            },
-            tooltip: {
-                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                    '<td style="padding:0"><b>Rs. {point.y:.1f}</b></td></tr>',
-                footerFormat: '</table>',
-                shared: true,
-                useHTML: true
-            },
+    state = {
+        revenueOptions: {},
+        capitalOptions: {}
+    }
+
+    getChartOptions = () => {
+        return {
+            chart: { type: 'column' },
+            title: { text: 'chart title' },
+            subtitle: { text: 'Source: CDL Budget Files' },
+            xAxis: { categories: [], crosshair: true },
+            yAxis: { min: 0, title: { text: 'Total Amount (Rs)' } },
+            tooltip: { shared: true },
             plotOptions: {
-                column: {
-                    pointPadding: 0.2,
-                    borderWidth: 0
-                }
+                column: { pointPadding: 0.2, borderWidth: 0 }
             },
-            series: [{
-                name: 'Budget',
-                data: [49.9, 71.5, 106.4, 129.2, 144.0]
-        
-            }, {
-                name: 'Revised',
-                data: [83.6, 78.8, 98.5, 93.4, 106.0]
-        
-            }, {
-                name: 'Actuals',
-                data: [48.9, 38.8, 39.3, 41.4, 47.0]
-        
-            }]
+            series: []
         };
-    
-        const capitalOptions = {
-            chart: {
-                type: 'column'
-            },
-            title: {
-                text: 'Capital'
-            },
-            subtitle: {
-                text: 'Source: CDC Budget Files'
-            },
-            xAxis: {
-                categories: [
-                    '2012-13',
-                    '2013-14',
-                    '2014-15',
-                    '2015-16',
-                    '2016-17'
-                ],
-                crosshair: true
-            },
-            yAxis: {
-                min: 0,
-                title: {
-                    text: 'Total Amount (Rs)'
-                }
-            },
-            tooltip: {
-                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                    '<td style="padding:0"><b>Rs. {point.y:.1f}</b></td></tr>',
-                footerFormat: '</table>',
-                shared: true,
-                useHTML: true
-            },
-            plotOptions: {
-                column: {
-                    pointPadding: 0.2,
-                    borderWidth: 0
-                }
-            },
-            series: [{
-                name: 'Budget',
-                data: [49.9, 71.5, 106.4, 129.2, 144.0]
-        
-            }, {
-                name: 'Revised',
-                data: [83.6, 78.8, 98.5, 93.4, 106.0]
-        
-            }, {
-                name: 'Actuals',
-                data: [48.9, 38.8, 39.3, 41.4, 47.0]
-        
-            }]
-        };
-    
-        console.log('budget', data.revenueAccount);
-        const getRevenueXaxisCategories = () => {
-            const categories = [];
-            data.revenueAccount.forEach(d => {
-                if(categories.indexOf(d.year) === -1) {
-                    categories.push(d.year);
+    }
+
+    getXaxisCategories = (data) => {
+        const categories = [];
+        data.forEach(d => {
+            if(categories.indexOf(d.year) === -1) {
+                categories.push(d.year);
+            }
+        });
+        return categories;
+    } 
+
+    getSeries = (data) => {
+        const seriesNames = [...new Set(data.map(d => d.type))];
+        let series = [];
+
+        seriesNames.forEach(sname => {
+            let seriesObject = {'name': sname, data: []};
+            data.forEach(d => {
+                if(seriesObject.name === d.type) {
+                    seriesObject.data.push(parseInt(d.expenditure));
                 }
             });
-            console.log('categories', categories)
-        }
-    
-        getRevenueXaxisCategories()
+            series.push(seriesObject);
+        });
+        return series;
+    }
 
+    componentDidMount() {
+        const revenueOptions = this.getChartOptions();
+        revenueOptions.title.text = 'Revenue Expenditure';
+        revenueOptions.xAxis.categories = [...this.getXaxisCategories(budgetData.revenueAccount)];
+        revenueOptions.series = [...this.getSeries(budgetData.revenueAccount)];
+
+        const capitalOptions = this.getChartOptions();
+        capitalOptions.title.text = 'Capital Expenditure';
+        capitalOptions.xAxis.categories = [...this.getXaxisCategories(budgetData.capitalAccount)];
+        capitalOptions.series = [...this.getSeries(budgetData.capitalAccount)];
+
+        this.setState({
+            revenueOptions: revenueOptions,
+            capitalOptions: capitalOptions
+        });
+    }
+
+    render() {
         return (
             <div className="row">
                 <div className="col-md-6">
-                    <HighchartsReact highcharts={Highcharts} options={revenueOptions} />
+                    <HighchartsReact highcharts={Highcharts} options={this.state.revenueOptions} />
                 </div>
                 <div className="col-md-6">
-                    <HighchartsReact highcharts={Highcharts} options={capitalOptions} />
+                    <HighchartsReact highcharts={Highcharts} options={this.state.capitalOptions} />
                 </div>
             </div>
         );
