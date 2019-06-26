@@ -6,16 +6,18 @@
             "subExpenditureFunctions": [
                 {
                     "name": "Machinery & Equipment",
+                    "value": 15,
                     "detailedAccountFunctions": [{
                         "name": "Purchase of Office Equipment",
-                        "value": 22.53
+                        "value": 15
                     }]
                 },
                 {
                     "name": "Furniture and Fixtures",
+                    "value": 15,
                     "detailedAccountFunctions": [{
                         "name": "New Furniture, Fixture & Fittings",
-                        "value": 22.53
+                        "value": 15
                     }]
                 }
             ]
@@ -24,13 +26,15 @@
             "value": 30,
             "subExpenditureFunctions": [{
                 "name": "Land Improvements",
+                "value": 30,
                 "detailedAccountFunctions": ["Land Acquisition"]
             }]
         },{
             "name": "Transportation Planning",
             "value": 20,
             "subExpenditureFunctions": [{
-                "name": "Land Improvements",
+                "name": "Transportation Planning",
+                "value": 20,
                 "detailedAccountFunctions": ["Construction & Improvement of Traffic Islands and Central Media"]
             }]
         },{
@@ -38,6 +42,7 @@
             "value": 20,
             "subExpenditureFunctions": [{
                 "name": "Buildings",
+                "value": 20,
                 "detailedAccountFunctions": ["Construction of Office Buildings"]
             }]
         }
