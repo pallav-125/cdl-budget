@@ -61,10 +61,7 @@ class BudgetSummary extends React.Component {
         capitalOptions.xAxis.categories = [...this.getXaxisCategories(budgetData.capitalAccount)];
         capitalOptions.series = [...this.getSeries(budgetData.capitalAccount)];
 
-        this.setState({
-            revenueOptions: revenueOptions,
-            capitalOptions: capitalOptions
-        });
+        this.setState({revenueOptions, capitalOptions});
     }
 
     render() {

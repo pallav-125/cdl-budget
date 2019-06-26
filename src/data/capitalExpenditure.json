@@ -1,0 +1,45 @@
+{
+    "expenditureFunctions": [
+        {
+            "name": "General Administration",
+            "value": 30,
+            "subExpenditureFunctions": [
+                {
+                    "name": "Machinery & Equipment",
+                    "detailedAccountFunctions": [{
+                        "name": "Purchase of Office Equipment",
+                        "value": 22.53
+                    }]
+                },
+                {
+                    "name": "Furniture and Fixtures",
+                    "detailedAccountFunctions": [{
+                        "name": "New Furniture, Fixture & Fittings",
+                        "value": 22.53
+                    }]
+                }
+            ]
+        },{
+            "name": "City and Town Planning",
+            "value": 30,
+            "subExpenditureFunctions": [{
+                "name": "Land Improvements",
+                "detailedAccountFunctions": ["Land Acquisition"]
+            }]
+        },{
+            "name": "Transportation Planning",
+            "value": 20,
+            "subExpenditureFunctions": [{
+                "name": "Land Improvements",
+                "detailedAccountFunctions": ["Construction & Improvement of Traffic Islands and Central Media"]
+            }]
+        },{
+            "name": "Public Works-General",
+            "value": 20,
+            "subExpenditureFunctions": [{
+                "name": "Buildings",
+                "detailedAccountFunctions": ["Construction of Office Buildings"]
+            }]
+        }
+    ]
+}
