@@ -2,7 +2,9 @@
   "name": "cdl-budget",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://pallav-125.github.io/cdl-budget",
   "dependencies": {
+    "gh-pages": "^2.0.1",
     "highcharts": "^7.1.2",
     "highcharts-react-official": "^2.2.2",
     "node-sass": "^4.12.0",
@@ -11,11 +13,17 @@
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1"
   },
+  "resolutions": {
+    "browserslist": "4.6.2",
+    "caniuse-lite": "1.0.30000974"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"

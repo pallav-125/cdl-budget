@@ -8,7 +8,7 @@ import '../css/App.scss';
 class App extends React.Component {
     render() {
         return (
-            <BrowserRouter>
+            <BrowserRouter basename="/cdl-budget">
                 <div className="app">
                     <Header />
                     <div className="container-fluid">
