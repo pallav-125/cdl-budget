@@ -1,6 +1,7 @@
 ## Instructions
 
 > npm install
+
 > npm start
 
 ## Click here to see the demo 
